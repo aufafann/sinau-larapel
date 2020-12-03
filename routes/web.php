@@ -14,26 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
-
-//Clousure
-Route::get('/profil', function(){
-    return "ini adalah profil siswa";
-})->name('profil');
-
-//Route name
-Route::get("/tesname", function(){
-    return route('profil');
+Route::get('/about', function () {
+    return view('about');
 });
+Route::get('/siswa', 'SiswaController@index')->name('siswa.view');
 
-//parameter
-Route::get('/profil/{id}', function($id){
-    return $id;
-});
+Route::get('/siswa/siswatambah', 'SiswaController@create');
 
-//controller
-Route::get("/tescontroller", "TesController@show");
-
-//Resource
-Route::resource('siswa', "SiswaController"); 
+Route::post('/siswa/store', 'SiswaController@store')->name('siswa.store');
