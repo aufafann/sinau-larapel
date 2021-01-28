@@ -27,9 +27,12 @@
 						<td>{{ $p-> nama}}</td>
 						<td class="text-center">{{ $p-> umur}}</td>
 						<td class="text-center">
-							<a href="" class="btn btn-warning">Edit</a>
-							<a href="" class="btn btn-danger">Hapus</a>
-							
+							<a href="{{ route('siswa.edit', $p->id) }}" class="btn btn-warning">Edit</a>
+							<form method="post" action="{{ route('siswa.delete', $p->id) }}" class="d-inline">
+								@csrf
+								@method('DELETE')
+								<button type="submit" class="btn btn-danger"> Delete</button>
+							</form>
 						</td>
 					</tr>
 					@endforeach
