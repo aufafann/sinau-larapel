@@ -18,10 +18,21 @@
 				<div class="form-group mx-2">
 					<label>Nama</label>
 					<input type="text" name="nama" placeholder="Masukkan Nama" class="form-control">
+
+					@if ($errors->has('nama'))
+					<div class="small text-denger">
+						{{ $errors->first('nama')}}
+					</div>
+					@endif
 				</div>
 				<div class="form-group mx-2">
 					<label>Umur</label>
 					<input type="number" name="umur" placeholder="Masukkan Umur" class="form-control">
+					@if ($errors->has('umur'))
+					<div class="small text-denger">
+						{{ $errors->first('umur')}}
+					</div>
+					@endif
 				</div>
 				<br>
 				<br>
